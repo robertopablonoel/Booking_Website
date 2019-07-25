@@ -1,0 +1,2 @@
+# Booking_Website
+This is a booking website that I created with my classmate Neal for our Databases class. Throughout the development of this project, I furthered my skills in SQL, Flask, JS, HTML and CSS .I have continued to work on this project on my own to learn front-end programming, using tools such as bootstrap, JavaScript and grid.  Below are the file descriptions, further documentation can be found in the adjacent PDF.
