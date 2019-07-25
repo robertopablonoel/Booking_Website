@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+	<title>Roberto & Neal Booking</title>
+
+	<!-- Google font -->
+	<link href="https://fonts.googleapis.com/css?family=PT+Sans:400" rel="stylesheet">
+
+	<!-- Bootstrap -->
+	<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}" />
+
+	<!-- Custom stlylesheet -->
+	<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+
+</head>
+
+<body>
+	<nav class="navbar navbar-inverse navbar-static-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+			<a class="navbar-brand" href="/">R&N Bookings</a>
+			</div>
+			<ul class="nav navbar-nav">
+			<li class="active"><a href="/">Home</a></li>
+			<li class="dropdown">
+				<a class="dropdown-toggle" data-toggle="dropdown" href="/client_login">Customer
+				<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+				<li><a href="/client_login">Login </a></li>
+				<li><a href="/client_register">Register </a></li>
+				</ul>
+			</li>
+			<li class="dropdown">
+				<a class="dropdown-toggle" data-toggle="dropdown" href="/staff_login">Staff
+				<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="/staff_login">Login </a></li>
+					<li><a href="/staff_register">Register </a></li>
+				</ul>
+				</li>
+			</ul>
+		</div>
+	</nav>	
+	<div id="booking" class="section">
+			<div class="section-center">
+				<style type="text/css">
+					table, th, td{
+						border: 1px solid black;
+					}
+				</style>
+				<form class = "result-form" method="POST">
+					<table class = "table table-striped" style = "background-color:grey">
+						<th>Airline</th>
+						<th>Flight Number</th>
+						<th>Departure</th>
+						<th>From</th>
+						<th>Departure City</th>
+						<th>Estimated Arrival</th>
+						<th>To</th>
+						<th>Arrival City</th>
+						<th>Price</th>
+				
+					{% for line in data %}
+						<tr>
+							<td>{{line['airline_name']}}</td>
+							<td>{{line['flight_no']}}</td>
+							<td>{{line['departure_date_time']}}</td>
+							<td>{{line['departs_from']}}</td>
+							<td>{{line['departure_city']}}</td>
+							<td>{{line['arrival_date_time']}}</td>
+							<td>{{line['arrives_from']}}</td>
+							<td>{{line['arrival_city']}}</td>
+							<td>{{line['real_price']}}</td>
+						</tr>
+					{% endfor %}
+					</table>
+
+				</form>
+			</div>
+		</div>
+	</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+	
+</html>
